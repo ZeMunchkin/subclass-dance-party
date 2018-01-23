@@ -1,6 +1,7 @@
 var HappyDog = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.attr("src", "./src/Funny_Dog_Transparent_PNG_Clipart.png");
+  this.$node.attr("src", "http://bit.ly/2BlDCYJ");
+  this.$node.attr('id', 'happyDog');
 };
 
 HappyDog.prototype = Object.create(Dancer.prototype);

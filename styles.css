@@ -3,7 +3,8 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-image: url(http://bit.ly/2BkET2b);
+  background-size: 100%;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -33,4 +34,12 @@ body, a:link, a:visited, a:active{
 #cat {
   width: 91px;
   height: 122px;
+}
+#crazyDog{
+  width: 320px;
+  height: 200px;
+}
+#happyDog {
+  width: 151px;
+  height: 225px;
 }
