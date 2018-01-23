@@ -30,3 +30,7 @@ body, a:link, a:visited, a:active{
   height: 80%;
   width: 80%;
 }
+#cat {
+  width: 91px;
+  height: 122px;
+}

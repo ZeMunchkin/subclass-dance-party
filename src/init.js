@@ -1,7 +1,9 @@
 $(document).ready(function() {
   window.dancers = [];
+  var catInThePark = false;
 
   $('.addDancerButton').on('click', function(event) {
+    event.preventDefault();
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
      * As long as the "data-dancer-maker-function-name" attribute of a
@@ -16,18 +18,46 @@ $(document).ready(function() {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    
+
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+    
+    
 
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
-    $('body').append(dancer.$node);
+    
+
+
+    if(dancerMakerFunctionName === 'Cat' && catInThePark === false) {
+      catInThePark = true;
+      $(document).mousemove( function(e) {
+        $('#cat').stop().animate({left: e.pageX, top: e.pageY}, 300);
+        $('body').css({'cursor': 'url(http://bit.ly/1rhj0Mp), auto'});
+      });
+      
+      window.dancers.push(dancer);
+      $('body').append(dancer.$node);
+      
+    } else if (dancerMakerFunctionName !== 'Cat') {
+      window.dancers.push(dancer);
+      $('body').append(dancer.$node);
+    }
+    
+    
+
+    
+
+    
+    console.log(window.dancers);
+    
   });
 });
 
