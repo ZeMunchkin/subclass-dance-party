@@ -4,13 +4,16 @@ body, html{
 body{
   margin: 0px;
   background-image: url(http://bit.ly/2BkET2b);
-  background-size: 100%;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .ballThrow{
   padding:5px 12px;
   float:right;
 }
@@ -38,8 +41,15 @@ body, a:link, a:visited, a:active{
 #crazyDog{
   width: 320px;
   height: 200px;
+  
 }
 #happyDog {
   width: 151px;
   height: 225px;
+  animation: top 0.3s ease-in infinite;
+}
+
+@keyframes top{
+  from{transform: translateY(0px);}
+  to{transform: translateY(10px);}
 }

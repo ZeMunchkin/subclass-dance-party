@@ -1,6 +1,17 @@
 $(document).ready(function() {
   window.dancers = [];
-  var catInThePark = false;
+  window.dogs = [];
+  window.cat = [];
+  
+  
+  setInterval (function () {
+    if (window.cat.length === 1) {
+      window.dogs.forEach (function (dog) {
+        dog.chaseCat();
+      });
+    }
+  }, 200);
+
 
   $('.addDancerButton').on('click', function(event) {
     event.preventDefault();
@@ -35,29 +46,35 @@ $(document).ready(function() {
     );
     
 
-
-    if(dancerMakerFunctionName === 'Cat' && catInThePark === false) {
-      catInThePark = true;
+    if(dancerMakerFunctionName === 'Cat' && window.cat.length === 0) {
       $(document).mousemove( function(e) {
         $('#cat').stop().animate({left: e.pageX, top: e.pageY}, 300);
-        $('body').css({'cursor': 'url(http://bit.ly/1rhj0Mp), auto'});
+        // $('body').css({'cursor': 'url(http://bit.ly/1rhj0Mp), auto'});
       });
       
-      window.dancers.push(dancer);
+      //window.dancers.push(dancer);
+      window.cat.push(dancer);
       $('body').append(dancer.$node);
       
     } else if (dancerMakerFunctionName !== 'Cat') {
-      window.dancers.push(dancer);
+      //window.dancers.push(dancer);
+      window.dogs.push(dancer);
       $('body').append(dancer.$node);
     }
     
+  });
+  
+  $('.ballThrow').on('click', function(event) {
+    //event.preventDefault();
     
-
+    console.log('this button has been clicked');
     
-
-    
-    console.log(window.dancers);
+    window.dogs.forEach( function (dog) {
+      dog.chaseBall();
+    });
     
   });
+  
+  
 });
 
