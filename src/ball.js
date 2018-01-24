@@ -13,13 +13,8 @@ Ball.prototype.throw = function () {
   var ball = this;
   setTimeout(function () {
     ball.$node.remove();
-  }, 450);
+  }, 850);
 };
 
-// .then(function() {
-//   var ballLeft = Math.round(this.$node.css('left').split('px')[0]);
-//   if (ballLeft === 0) {
-//     this.$node.remove();
-//   }
-// });
+
 

@@ -8,16 +8,6 @@ HappyDog.prototype = Object.create(Dog.prototype);
 
 HappyDog.prototype.constructor = HappyDog;
 
-/*HappyDog.prototype.step = function () {
-  var oldStep = Dancer.prototype.step;
-  
-  oldStep.call(this, this.timeBetweenSteps);
-  this.$node.toggle();
-};
-*/
-
-//$("#my_image").attr("src","second.jpg");
-
 HappyDog.prototype.chaseBall = function () {
-  this.$node.stop().animate({'left': '0px'}, 200);
+  this.$node.animate({'left': '0px'}, 200);
 };

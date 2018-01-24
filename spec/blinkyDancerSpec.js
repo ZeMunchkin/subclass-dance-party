@@ -60,11 +60,7 @@ describe('happyDog', function () {
     clock = sinon.useFakeTimers();
     happyDog = new HappyDog( 10, 20, timeBetweenSteps);
   });
-  // it('should call the chaseCat method after instantiating cat', function(){
-  //   sinon.spy(happyDog, 'chaseCat');
-  //   expect(happyDog.chaseCat.callCount).to.be.equal(0);
-    
-  // });
+
   it('should inherit step method from dancer', function () {
     expect(happyDog.step).to.be.a('function');
   });

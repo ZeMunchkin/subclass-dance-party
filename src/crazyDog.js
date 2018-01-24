@@ -10,7 +10,7 @@ CrazyDog.prototype = Object.create(Dog.prototype);
 CrazyDog.prototype.constructor = CrazyDog;
 
 CrazyDog.prototype.chaseBall = function () {
-  this.$node.stop().animate({'left': '-20px'}, 500);
+  this.$node.animate({'left': '0px'}, 500);
 };
 
 CrazyDog.prototype.wag = function () {
