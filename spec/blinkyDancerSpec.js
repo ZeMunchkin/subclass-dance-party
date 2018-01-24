@@ -32,3 +32,71 @@ describe('blinkyDancer', function() {
     });
   });
 });
+
+describe('cat', function () {
+  var cat, clock;
+  var timeBetweenSteps = 100;
+  
+  beforeEach (function () {
+    clock = sinon.useFakeTimers();
+    cat = new Cat( 10, 20, timeBetweenSteps);
+  });
+  
+  it('should inherit step method from dancer', function () {
+    expect(cat.step).to.be.a('function');
+  });
+  
+  it('should have a JQuery node object', function () {
+    expect(cat.$node).to.be.an.instanceOf(jQuery);
+  });
+});
+
+describe('happyDog', function () {
+  var happyDog, clock;
+  var timeBetweenSteps = 100;
+  
+  
+  beforeEach (function () {
+    clock = sinon.useFakeTimers();
+    happyDog = new HappyDog( 10, 20, timeBetweenSteps);
+  });
+  // it('should call the chaseCat method after instantiating cat', function(){
+  //   sinon.spy(happyDog, 'chaseCat');
+  //   expect(happyDog.chaseCat.callCount).to.be.equal(0);
+    
+  // });
+  it('should inherit step method from dancer', function () {
+    expect(happyDog.step).to.be.a('function');
+  });
+  it('should inherit chaseCat and stopChasing from Dog', function () {
+    expect(happyDog.chaseCat).to.be.a('function');
+    expect(happyDog.stopChasing).to.a('function');
+  });
+});
+
+describe('crazyDog', function () {
+  var crazyDog, clock;
+  var timeBetweenSteps = 100;
+  
+  beforeEach (function () {
+    clock = sinon.useFakeTimers();
+    crazyDog = new CrazyDog( 10, 20, timeBetweenSteps);
+  });
+  
+  it('should have a wag function that makes the image flip horizontally', function () {
+    sinon.spy(crazyDog.$node, 'attr');
+    crazyDog.wag();
+    clock.tick(timeBetweenSteps);
+    clock.tick(timeBetweenSteps);
+    expect(crazyDog.$node.attr.called).to.be.true;
+  });
+  
+  it('should inherit step method from dancer', function () {
+    expect(crazyDog.step).to.be.a('function');
+  });
+  it('should inherit chaseCat and stopChasing from Dog', function () {
+    expect(crazyDog.chaseCat).to.be.a('function');
+    expect(crazyDog.stopChasing).to.a('function');
+  });
+});
+

@@ -34,6 +34,10 @@ body, a:link, a:visited, a:active{
   height: 80%;
   width: 80%;
 }
+.ball{
+  width: 120px;
+  height: 128px;
+}
 #cat {
   width: 91px;
   height: 122px;
@@ -41,12 +45,20 @@ body, a:link, a:visited, a:active{
 #crazyDog{
   width: 320px;
   height: 200px;
+  animation: background 0.3s infinite;
+  background-size: 100%;
   
 }
 #happyDog {
   width: 151px;
   height: 225px;
   animation: top 0.3s ease-in infinite;
+}
+
+@keyframes background {
+  from{src: url("./src/Funny_Dog_Transparent_PNG_Clipart.png")}
+  to {src: url("./src/Funny_Dog_Transparent_PNG_Clipart_flipped.png")}
+  
 }
 
 @keyframes top{

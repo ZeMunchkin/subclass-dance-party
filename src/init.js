@@ -3,6 +3,10 @@ $(document).ready(function() {
   window.dogs = [];
   window.cat = [];
   
+  var tennisBall = new Ball(800, 1150);
+  $('body').append(tennisBall.$node);
+  
+  
   
   setInterval (function () {
     if (window.cat.length === 1) {
@@ -65,13 +69,24 @@ $(document).ready(function() {
   });
   
   $('.ballThrow').on('click', function(event) {
-    //event.preventDefault();
+    tennisBall.throw();
+  
+    setTimeout( function () {
+      window.dogs.forEach( function (dog) {
+        dog.chaseBall();
+      });
+      
+      tennisBall = new Ball (800, 1150);
+      $('body').append(tennisBall.$node);
+    }, 300);
     
-    console.log('this button has been clicked');
+    setTimeout( function () {
+      window.dogs.forEach( function (dog) {
+        dog.stopChasing();
+      });
+    }, 1000);
     
-    window.dogs.forEach( function (dog) {
-      dog.chaseBall();
-    });
+    
     
   });
   
