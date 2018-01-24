@@ -50,9 +50,9 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
-      Math.random() * 700
+      650 * Math.random() + 15,
+      1400 * Math.random(),
+      Math.random() * 1000
     );
     
 
@@ -71,8 +71,8 @@ $(document).ready(function() {
     }
   });
   
-  
-  $('.ballThrow').on('click', function(event) {
+  var throwTheBall = function (event) {
+    event.preventDefault();
     tennisBall.throw();
   
     setTimeout( function () {
@@ -89,8 +89,11 @@ $(document).ready(function() {
         dog.stopChasing();
       });
     }, 1500);
-    
-  });
+  };
+  
+  $('.ballThrow').on('click', throwTheBall);
+  
+  $('.ball').on('click', throwTheBall);
   
   
 });
